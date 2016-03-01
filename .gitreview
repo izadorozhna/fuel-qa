@@ -1,0 +1,4 @@
+[gerrit]
+host=review.ci-cd-aut.local
+port=29418
+project=fuel-qa.git
