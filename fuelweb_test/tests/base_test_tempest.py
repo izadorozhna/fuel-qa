@@ -34,6 +34,19 @@ class TempestTestBase(TestBasic):
             for line in prepeare_result['stdout']:
                 logger.info(line)
 
+    def edit_should_fail(self):
+        file_to_change = "/home/developer/mos-tempest-runner/shouldfail/7_0/" \
+                         "shouldfail.yaml"
+        logger.info("Editing {0}".format(file_to_change))
+        with self.env.d_env.get_admin_remote() as remote:
+            prepare_cmd = ("echo -e $'\n# HEAT - Stack cannot be created with "
+                           "SSL env (#LP1537068)\n- tempest.api.orchestration."
+                           "stacks.test_stacks.StacksTestJSON.test_stack_crud_"
+                           "no_resources[id-10498bd5-a83e-4b62-a817-ce24afe938fe,smoke]' >> {}".format(file_to_change))
+            prepare_result = remote.execute(prepare_cmd)
+            for line in prepare_result['stdout']:
+                logger.info(line)
+
     def run_tempest(self, test_suite=""):
         # test_suite (str): default "" means run all tests
         # example: test_suite="tempest.api.identity"

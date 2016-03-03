@@ -22,6 +22,7 @@ from fuelweb_test.helpers import os_actions
 from fuelweb_test.helpers.decorators import log_snapshot_after_test
 from fuelweb_test.settings import DEPLOYMENT_MODE
 from fuelweb_test.settings import NEUTRON_SEGMENT
+from fuelweb_test.settings import DISABLE_SSL
 from fuelweb_test.tests.base_test_case import SetupEnvironment
 from fuelweb_test.tests.base_test_case import TestBasic
 from fuelweb_test.tests.test_neutron_tun_base import NeutronTunHaBase
@@ -95,7 +96,9 @@ class PackageTempest(TestBasic):
         # tempest.run_tempest(test_suite="tempest.api.identity") etc
         tempest = TempestTestBase()
         tempest.install_tempest()
-        tempest.run_tempest()
+        if not DISABLE_SSL:
+            tempest.edit_should_fail()
+        tempest.run_tempest("smoke")
 
         self.env.make_snapshot("deploy_package_tempest")
 
