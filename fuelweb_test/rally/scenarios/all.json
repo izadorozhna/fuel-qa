@@ -1,5 +1,5 @@
-
-nderVolumes.create_and_delete_volume": [
+{
+  "CinderVolumes.create_and_delete_volume": [
     {
       "args": {
         "size": 1
