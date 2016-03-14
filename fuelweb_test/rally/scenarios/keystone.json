@@ -1,92 +1,106 @@
 {
-    "KeystoneBasic.add_and_remove_user_role": [
+  "KeystoneBasic.add_and_remove_user_role": [
     {
-            "runner": {
-                "type": "constant",
-                "times": 100,
-                "concurrency": 10
-            },
-            "context": {
-                "users": {
-                    "tenants": 3,
-                    "users_per_tenant": 2
-                }
-            }
+      "context": {
+        "users": {
+          "project_domain": "default",
+          "resource_management_workers": 30,
+          "tenants": 3,
+          "user_domain": "default",
+          "users_per_tenant": 2
         }
-    ],
-    "KeystoneBasic.create_and_delete_ec2credential": [
-        {
-            "runner": {
-                "type": "constant",
-                "times": 10,
-                "concurrency": 5
-            },
-            "context": {
-                "users": {
-                    "tenants": 2,
-                    "users_per_tenant": 2
-                }
-            }
-        }
-    ],
-    "KeystoneBasic.create_and_delete_role": [
+      },
+      "runner": {
+        "concurrency": 10,
+        "times": 100,
+        "type": "constant"
+      },
+      "sla": {
+        "max_avg_duration": 2.61
+      }
+    }
+  ],
+  "KeystoneBasic.create_and_delete_ec2credential": [
     {
-            "runner": {
-                "type": "constant",
-                "times": 100,
-                "concurrency": 10
-            }
+      "context": {
+        "users": {
+          "project_domain": "default",
+          "resource_management_workers": 30,
+          "tenants": 2,
+          "user_domain": "default",
+          "users_per_tenant": 2
         }
-    ],
-    "KeystoneBasic.create_delete_user": [
-        {
-            "args": {},
-            "runner": {
-                "type": "constant",
-                "times": 100,
-                "concurrency": 10
-            }
-        }
-    ],
-    "KeystoneBasic.create_and_list_tenants": [
-        {
-            "args": {},
-            "runner": {
-                "type": "constant",
-                "times": 10,
-                "concurrency": 1
-            }
-        }
-    ],
-    "KeystoneBasic.create_update_and_delete_tenant": [
+      },
+      "runner": {
+        "concurrency": 5,
+        "times": 100,
+        "type": "constant"
+      },
+      "sla": {
+        "max_avg_duration": 1.3
+      }
+    }
+  ],
+  "KeystoneBasic.create_and_delete_role": [
     {
-            "args": {},
-            "runner": {
-                "type": "constant",
-                "times": 100,
-                "concurrency": 10
-            }
-        }
-    ],
-    "KeystoneBasic.create_user_update_password": [
-        {
-            "args": {},
-            "runner": {
-                "type": "constant",
-                "times": 100,
-                "concurrency": 10
-            }
-        }
-    ],
-    "KeystoneBasic.get_entities": [
+      "runner": {
+        "concurrency": 10,
+        "times": 100,
+        "type": "constant"
+      },
+      "sla": {
+        "max_avg_duration": 2.85
+      }
+    }
+  ],
+  "KeystoneBasic.create_and_list_tenants": [
     {
-            "runner": {
-                "type": "constant",
-                "times": 100,
-                "concurrency": 10
-            }
-        }
-    ]
+      "runner": {
+        "concurrency": 10,
+        "times": 100,
+        "type": "constant"
+      },
+      "sla": {
+        "max_avg_duration": 1.8
+      }
+    }
+  ],
+  "KeystoneBasic.create_delete_user": [
+    {
+      "runner": {
+        "concurrency": 10,
+        "times": 100,
+        "type": "constant"
+      },
+      "sla": {
+        "max_avg_duration": 3.7
+      }
+    }
+  ],
+  "KeystoneBasic.create_update_and_delete_tenant": [
+    {
+      "runner": {
+        "concurrency": 10,
+        "times": 100,
+        "type": "constant"
+      },
+      "sla": {
+        "max_avg_duration": 4.25
+      }
+    }
+  ],
+  "KeystoneBasic.create_user_update_password": [
+    {
+      "runner": {
+        "concurrency": 10,
+        "times": 100,
+        "type": "constant"
+      },
+      "sla": {
+        "max_avg_duration": 3.78
+      }
+    }
+  ]
 }
 
 
