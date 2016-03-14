@@ -304,7 +304,7 @@ class RallyTask(object):
         cmd = ("awk 'BEGIN{{retval=1}};/^Using task:/{{print $NF; retval=0}};"
                "END {{exit retval}}' {0}").format(temp_file)
         wait(lambda: self.engine.run_container_command(cmd)['exit_code'] == 0,
-             timeout=30)
+             timeout=300)
         result = self.engine.run_container_command(cmd)
         task_uuid = ''.join(result['stdout']).strip()
         assert_true(task_uuid in self.engine.list_tasks(),

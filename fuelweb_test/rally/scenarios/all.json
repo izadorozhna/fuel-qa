@@ -513,7 +513,7 @@ nderVolumes.create_and_delete_volume": [
       },
       "runner": {
         "concurrency": 2,
-        "times": 30,
+        "times": 20,
         "type": "constant"
       },
       "sla": {

@@ -114,7 +114,7 @@
       },
       "runner": {
         "concurrency": 2,
-        "times": 30,
+        "times": 20,
         "type": "constant"
       },
       "sla": {
