@@ -513,6 +513,9 @@ RALLY_TAGS = os.environ.get('RALLY_TAGS', 'all').split(',')
 # Explanation: on MOS 7.0 we cannot make 'docker pull rallyforge/rally'
 MIRROR_ADDRESS = os.environ.get('MIRROR_ADDRESS', "")
 
+DASHBOARD_INTEGRATION_TESTS_REPO = os.environ.get(
+    'DASHBOARD_INTEGRATION_TESTS_REPO', "")
+
 REGENERATE_ENV_IMAGE = get_var_as_bool('REGENERATE_ENV_IMAGE', False)
 LATE_ARTIFACTS_JOB_URL = os.environ.get("LATE_ARTIFACTS_JOB_URL", '')
 
